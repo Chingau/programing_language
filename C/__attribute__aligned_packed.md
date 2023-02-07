@@ -75,3 +75,27 @@ struct A {
 
 > 针对结构体而言，无论 aligned(n) 中的 n 是否大于编译器的字节数，结构体中的成员全部按照编译器的字节数对齐(32位的编译器，那就是4字节对齐；64位的编译器，那就是8字节对齐)，但整个结构体占用的字节数是按照 n 对齐的；
 
+
+另外，注意以下区别：
+
+```c
+__attribute__((packed))         //1字节对齐，无论编译器是多少位的，修饰结构体时，整个结构体占用的字节也是1字节对齐
+
+__attribute__((aligned(1)))     //1字节对齐，但还是取决编译器的位数，按编译器位数对齐
+```
+
+```c
+struct A {
+    int a;
+    double b;
+    char c;
+} __attribute__((packed));
+
+struct B {
+    int a;
+    double b;
+    char c;
+} __attribute__((aligned(1)))
+
+在 64 位编译器下，sizeof(A) = 13, sizeof(B) = 24
+```
