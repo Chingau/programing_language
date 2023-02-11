@@ -40,6 +40,6 @@ int main(int argc, const char *argv[])
 
 查看 test.map 文件，有如下内容：
 
-![](../images/Snipaste_2023-02-01_13-16-50.png)
+![](images/Snipaste_2023-02-01_13-16-50.png)
 
 
