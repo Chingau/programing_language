@@ -101,7 +101,7 @@ set_number:
 	inc dl
 	inc bx
 	loop set_number
-	
+
 	mov ax,4c00H	;程序返回
 	int 21H
 code ends
